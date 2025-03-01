@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Referencias a los elementos de la interfaz
-        val etNombre = findViewById<EditText>(R.id.etNombre)
         val etHoras = findViewById<EditText>(R.id.etHoras)
         val etTarifa = findViewById<EditText>(R.id.etTarifa)
         val btnCalcular = findViewById<Button>(R.id.btnCalcular)
