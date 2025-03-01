@@ -7,6 +7,10 @@ android {
     namespace = "online.clugo19.examen_cesar"
     compileSdk = 35
 
+    viewBinding {
+        enable = true
+    }
+
     defaultConfig {
         applicationId = "online.clugo19.examen_cesar"
         minSdk = 24
