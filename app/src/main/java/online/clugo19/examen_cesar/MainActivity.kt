@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Referencias a los elementos de la interfaz
+        // Obtener referencias a los elementos de la UI
         val etHoras = findViewById<EditText>(R.id.etHoras)
         val etTarifa = findViewById<EditText>(R.id.etTarifa)
         val btnCalcular = findViewById<Button>(R.id.btnCalcular)
@@ -30,17 +30,17 @@ class MainActivity : AppCompatActivity() {
         val tvDeduccionINSS = findViewById<TextView>(R.id.tvDeduccionINSS)
         val tvSalarioNeto = findViewById<TextView>(R.id.tvSalarioNeto)
 
-        // Evento al presionar el botón
+        // Asignar evento al botón
         btnCalcular.setOnClickListener {
             calcularSalario(etHoras, etTarifa, tvSalarioBruto, tvDeduccionINSS, tvSalarioNeto)
         }
     }
 
     private fun calcularSalario(etHoras: EditText, etTarifa: EditText, tvSalarioBruto: TextView, tvDeduccionINSS: TextView, tvSalarioNeto: TextView) {
-        val horasStr = etHoras.text.toString()
-        val tarifaStr = etTarifa.text.toString()
+        val horasStr = etHoras.text.toString().trim()
+        val tarifaStr = etTarifa.text.toString().trim()
 
-        // Validaciones de entrada
+        // Validar que los valores no sean vacíos
         if (horasStr.isEmpty() || tarifaStr.isEmpty()) {
             Toast.makeText(this, "Ingrese todos los valores requeridos", Toast.LENGTH_SHORT).show()
             return
@@ -49,17 +49,18 @@ class MainActivity : AppCompatActivity() {
         val horas = horasStr.toDoubleOrNull()
         val tarifa = tarifaStr.toDoubleOrNull()
 
+        // Validar que sean números válidos
         if (horas == null || tarifa == null) {
             Toast.makeText(this, "Ingrese valores numéricos válidos", Toast.LENGTH_SHORT).show()
             return
         }
 
-        // Cálculo del salario
+        // Calcular salario
         val salarioBruto = horas * tarifa
         val deduccionINSS = salarioBruto * 0.07
         val salarioNeto = salarioBruto - deduccionINSS
 
-        // Mostrar los resultados en los TextView
+        // Mostrar resultados
         tvSalarioBruto.text = "Salario Bruto: %.2f".format(salarioBruto)
         tvDeduccionINSS.text = "Deducción INSS (7%): %.2f".format(deduccionINSS)
         tvSalarioNeto.text = "Salario Neto: %.2f".format(salarioNeto)
