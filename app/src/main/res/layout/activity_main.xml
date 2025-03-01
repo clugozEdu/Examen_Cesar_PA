@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <!-- Campo para ingresar el nombre del trabajador (opcional) -->
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del trabajador (opcional)"
+        android:inputType="textPersonName"/>
+
+    <!-- Campo para ingresar las horas trabajadas -->
+    <EditText
+        android:id="@+id/etHoras"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Horas trabajadas (requerido)"
+        android:inputType="number"/>
+
+    <!-- Campo para ingresar la tarifa por hora -->
+    <EditText
+        android:id="@+id/etTarifa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tarifa por hora (requerido)"
+        android:inputType="numberDecimal"/>
+
+    <!-- Botón para calcular el salario -->
+    <Button
+        android:id="@+id/btnCalcular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calcular Salario"/>
+
+    <!-- Mostrar resultados -->
+    <TextView
+        android:id="@+id/tvSalarioBruto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salario Bruto: "
+        android:textSize="16sp"
+        android:paddingTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tvDeduccionINSS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Deducción INSS (7%): "
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/tvSalarioNeto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salario Neto: "
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+</LinearLayout>
